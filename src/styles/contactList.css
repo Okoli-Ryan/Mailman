@@ -1,0 +1,8 @@
+.contact-list{
+    /* grid-column: 1 / 2; large devices*/
+    /* grid-row: 2 / 4; large devices*/
+    background-color: red;
+    /* min-width: 10em; large devices*/
+    position: absolute;
+    left: -100px;
+}

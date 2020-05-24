@@ -1,0 +1,29 @@
+.message{
+    padding: .4rem 1rem .4rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1.5px black;
+    max-width: 60%
+}
+
+.message-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.message .sender{
+    font-size: .8rem;
+    font-weight: bolder;
+    margin-bottom: .5rem;
+    color: rgb(39, 39, 39)
+
+}
+
+
+
+.message .time{
+    margin-top: .5rem;
+    font-size: .7rem;
+    color: rgb(39, 39, 39)
+}

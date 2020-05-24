@@ -1,0 +1,62 @@
+.textview {
+  /* grid-column: 2 / 3; large devices*/
+  grid-row: 3 / 4;
+  background-color: rgb(207, 242, 245);
+  display: flex;
+}
+
+.textview .sendButton {
+  /* width: 30px;
+    height: 30px; */
+  background: none;
+  outline: none;
+  border: none;
+  align-items: flex-end;
+  margin-top: .27rem
+}
+
+.sendButton-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  padding-right: .5rem;
+}
+
+.message-view-container {
+  display: flex;
+  justify-content: left;
+  width: 300%;
+  padding: .1rem 0 .1rem 1rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.textview .sendButton:checked {
+  outline: none;
+}
+
+.sendButton .sendButton-img {
+  width: 25px;
+  height: 25px;
+}
+
+.message-view {
+  height: 80%;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  width: 100%;
+  background: white;
+  padding: .35rem 1.2rem .2rem 1.2rem;
+  border: none;
+  resize: none;
+  line-height: 2;
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.message-view:empty::before{
+    content: "Send a message...";
+}

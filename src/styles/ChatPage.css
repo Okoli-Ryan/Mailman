@@ -1,0 +1,6 @@
+.chat-page{
+    display: grid;
+    /* grid-template-columns: 2fr 9fr; large devices*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 9fr 1fr;
+}
