@@ -10,8 +10,7 @@ const TextView = () => {
         placeholder='Send a message...'
         className="message-view"
         rows="1"
-        >    
-        </textarea>
+        />    
       </div>
       <div className="sendButton-container">
         <button className="sendButton" onClick={() => console.log(2)}>
