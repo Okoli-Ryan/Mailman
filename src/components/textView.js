@@ -2,14 +2,16 @@ import React from "react";
 import sendButton from "../send-button.svg";
 
 const TextView = () => {
+
   return (
     <div className="textview">
       <div className="message-view-container">
-        <span
+        <textarea
+        placeholder='Send a message...'
         className="message-view"
-        role="textbox"
-        contentEditable>    
-        </span>
+        rows="1"
+        >    
+        </textarea>
       </div>
       <div className="sendButton-container">
         <button className="sendButton" onClick={() => console.log(2)}>
