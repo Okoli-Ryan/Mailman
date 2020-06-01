@@ -1,12 +1,15 @@
 import React from "react";
 import Header from '../components/header'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 function Home() {
 
     const history = useHistory();
+    const isLogged = useSelector(state => state)
 
   return (
+    isLogged === true ? <Redirect to="/chatpage"/> :
     <div className="home">
         <Header></Header>
       <div className="home-container">

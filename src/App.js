@@ -6,16 +6,23 @@ import SignUp from './pages/signup'
 import Login from './pages/login'
 // import {auth} from './services/firebase'
 import ChatPage from './pages/ChatPage'
+import PrivateRoute from './components/PrivateRoute'
+import {useSelector} from 'react-redux'
 
 import './App.css';
 
 function App() {
+
+const isLogged = useSelector(state => state)
+
+//publicroute container
+
   return (
     <Router>
       <Route path="/" component={Home} exact />
       <Route path="/login" component={Login} exact/>
       <Route path="/signup" component={SignUp} exact/>
-      <Route path="/chatpage" component={ChatPage} exact/>
+      <PrivateRoute path="/chatpage" isLogged={isLogged} component={ChatPage} exact/>
     </Router>
   );
 }

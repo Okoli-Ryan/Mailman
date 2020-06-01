@@ -3,6 +3,11 @@
   grid-row: 3 / 4;
   background-color: rgb(207, 242, 245);
   display: flex;
+  transition: height .1s ease-in-out
+}
+
+.textview:focus-within{
+  height: 4.4rem
 }
 
 .textview .sendButton {
@@ -32,6 +37,11 @@
   align-items: center;
   height: 100%;
   box-sizing: border-box;
+  transition: height .1s ease-in-out;
+}
+
+.message-view-container:focus-within{
+  height: 4.4rem;
 }
 
 .textview .sendButton:checked {
@@ -44,20 +54,28 @@
 }
 
 .message-view {
-  height: 60%;
+  height: 65%;
   box-sizing: border-box;
   border-radius: 2rem;
   width: 100%;
   background: white;
-  padding: .35em 1.2em .2em 1.2em;
+  padding: .5rem 1.2rem .2rem 1.2rem;
   border: none;
   resize: none;
-  min-height: 1rem;
+  min-height: 2.2rem;
   /* resize: vertical; */
   max-height: 4rem;
   overflow: hidden;
+  transition: height .1s ease-in-out;
+}
+
+.message-view:focus{
+  height: 85%;
+  overflow-y: scroll;
 }
 
 .message-view:empty::before{
     content: "Send a message...";
 }
+
+
