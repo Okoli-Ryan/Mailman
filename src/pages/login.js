@@ -10,7 +10,7 @@ function Login() {
   const isLoggedIn = useSelector(state => state) 
 
   return (
-    isLoggedIn === true ? (<Redirect to='/chatpage'/>) :
+    isLoggedIn ? (<Redirect to='/chatpage'/>) :
     (<>
       <div className="form-page">
         <Header />

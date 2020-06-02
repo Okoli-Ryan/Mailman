@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route, BrowserRouter as Router} from 'react-router-dom'
 import Home from './pages/home'
 // import Chat from './pages/chat'
@@ -7,15 +7,28 @@ import Login from './pages/login'
 // import {auth} from './services/firebase'
 import ChatPage from './pages/ChatPage'
 import PrivateRoute from './components/PrivateRoute'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {Auth} from './services/firebase'
+import {setUser, logout} from './actions/loginAction'
 
 import './App.css';
 
 function App() {
 
+  const dispatch = useDispatch();
+
 const isLogged = useSelector(state => state)
 
 //publicroute container
+useEffect(() => {
+  Auth.onAuthStateChanged((user) => {
+    if(user){
+      dispatch({type: 'set-user', payload: user})
+    }
+    else
+    dispatch(logout())
+  })
+}, [])
 
   return (
     <Router>

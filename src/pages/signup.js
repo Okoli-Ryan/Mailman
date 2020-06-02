@@ -2,16 +2,18 @@ import React from "react";
 import Header from "../components/header";
 import {Link, Redirect} from 'react-router-dom'
 import {useForm} from '../customHooks/useForm'
-import {useSelector} from 'react-redux';
+import {signup} from '../actions/loginAction'
+import {useSelector, useDispatch} from 'react-redux';
 
 
 function Signup() {
 
-  const {handleChange, handleSubmit} = useForm();
+  const {handleChange, handleSubmit, userDetails} = useForm();
   const isLoggedIn = useSelector(state => state) 
+  const dispatch = useDispatch();
 
   return (
-    isLoggedIn === true ? (<Redirect to='/chatpage'/>) :
+    isLoggedIn ? (<Redirect to='/chatpage'/>) :
     (
     <>
       <div className="form-page">
@@ -21,14 +23,14 @@ function Signup() {
             <div className="form-title">{/* user icon */}Signup</div>
             <div className="username">
               <label htmlFor="username">Username</label>
-              <input type="text" name="username" className="login-username" onChange={handleChange}/>
+              <input type="email" name="email" className="login-username" onChange={handleChange}/>
             </div>
             <div className="password">
               <label htmlFor="password">Password</label>
               <input type="password" name="password" onChange={handleChange}/>
             </div>
             <div className="form-submit">
-              <input type="button" className="submit" onClick={handleSubmit} value="submit"/>
+              <input type="button" className="submit" onClick={() => dispatch({type: 'sign-up', payload: userDetails})} value="submit"/>
             </div>
             <div className="form-switch">switch to <Link to="/login">Log in</Link></div>
           </form>
