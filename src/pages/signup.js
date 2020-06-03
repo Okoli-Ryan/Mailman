@@ -2,13 +2,12 @@ import React from "react";
 import Header from "../components/header";
 import {Link, Redirect} from 'react-router-dom'
 import {useForm} from '../customHooks/useForm'
-import {signup} from '../actions/loginAction'
 import {useSelector, useDispatch} from 'react-redux';
 
 
 function Signup() {
 
-  const {handleChange, handleSubmit, userDetails} = useForm();
+  const {handleChange, userDetails} = useForm();
   const isLoggedIn = useSelector(state => state) 
   const dispatch = useDispatch();
 
