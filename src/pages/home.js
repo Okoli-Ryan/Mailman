@@ -9,7 +9,7 @@ function Home() {
     const isLogged = useSelector(state => state)
 
   return (
-    isLogged === true ? <Redirect to="/chatpage"/> :
+    isLogged ? <Redirect to="/chatpage"/> :
     <div className="home">
         <Header></Header>
       <div className="home-container">
