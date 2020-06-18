@@ -7,7 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 function Login() {
 
   const {handleChange, userDetails} = useForm();
-  const isLoggedIn = useSelector(state => state)
+  const isLoggedIn = useSelector(state => state.loginReducer)
   const dispatch = useDispatch();
 
   return (

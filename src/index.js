@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import loginReducer from "./reducers/loginReducer";
+import allReducers from "./reducers";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 const store = createStore(
-  loginReducer,
+  allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

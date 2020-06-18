@@ -7,7 +7,7 @@ import Login from "./pages/login";
 // import {auth} from './services/firebase'
 import ChatPage from "./pages/ChatPage";
 import PrivateRoute from "./components/PrivateRoute";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Auth } from "./services/firebase";
 import { setUser, logout, login } from "./actions/loginAction";
 
@@ -16,7 +16,6 @@ import "./App.css";
 function App() {
   const dispatch = useDispatch();
 
-  //publicroute container
   useEffect(() => {
     Auth.onAuthStateChanged((user) => {
       if (user) {
@@ -34,7 +33,7 @@ function App() {
       <Route path="/signup" component={SignUp} exact />
       <PrivateRoute
         path="/chatpage"
-        isLogged={useSelector(state => state)}
+        isLogged={useSelector(state => state.loginReducer)}
         component={ChatPage}
         exact
       />

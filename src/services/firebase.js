@@ -13,6 +13,8 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
+  
   export const Auth = firebase.auth();
-  export const Db = firebase.database()
+  export const FieldValue = firebase.firestore.FieldValue;
+  export const Db = firebase.firestore();
+  export const Function = firebase.functions();

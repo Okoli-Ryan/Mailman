@@ -4,6 +4,9 @@
     background: hsl(190, 45%, 74%);
     background: transparent;
     border-bottom: 1px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .chat-page .header{
@@ -14,13 +17,29 @@
     grid-area: 1 / 1 / 2 / 2
 }
 
-.header span img{
-    width: 1.8rem;
-    height: 1.8rem;
-    position: relative;
-    top: .8rem;
-    margin: 0 -4px 0 -4px;
+.header button{
+    text-align: left;
 }
+
+
+/* Inline #5 | http://localhost:3000/ */
+
+.menubar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: url('../menu-bar.svg');
+  }
+
+  .menu-button-container .menubar{
+      background-size: contain;
+  }
+    
+  .menu-button-container {
+    padding: .5rem;
+    padding-bottom: 0;
+  }
+  
 
 .header p{
     text-align: center;

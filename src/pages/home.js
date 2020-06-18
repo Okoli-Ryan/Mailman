@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux'
 function Home() {
 
     const history = useHistory();
-    const isLogged = useSelector(state => state)
+    const isLogged = useSelector(state => state.loginReducer)
 
   return (
     isLogged ? <Redirect to="/chatpage"/> :
