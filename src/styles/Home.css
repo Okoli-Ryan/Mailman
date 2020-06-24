@@ -2,6 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 11fr;
     grid-template-areas: "header" "home-container";
+    background-color: rgb(244, 252, 253);
 }
 
 .home-container{
