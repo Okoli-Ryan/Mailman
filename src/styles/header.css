@@ -1,49 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-.header{
-    background-color: rgb(207, 242, 245);
-    /* border-bottom: 1px solid white; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.header {
+  background-color: rgb(207, 242, 245);
+  /* border-bottom: 1px solid white; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.chat-page .header{
-    grid-area: 1 / 1 / 2 / 3;
+.chat-page .header {
+  grid-area: 1 / 1 / 2 / 3;
 }
 
-.form-page .header{
-    grid-area: 1 / 1 / 2 / 2
+.form-page .header {
+  grid-area: 1 / 1 / 2 / 2;
 }
 
-.header button{
-    text-align: left;
+.header button {
+  text-align: left;
 }
-
 
 /* Inline #5 | http://localhost:3000/ */
 
 .menubar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border: none;
-    background: url('../menu-bar.svg');
-    margin-top: .1rem;
-  }
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: url("../menu-bar.svg");
+  margin-top: 0.1rem;
+}
 
-  .menu-button-container .menubar{
-      background-size: contain;
-  }
-    
-  .menu-button-container {
-    padding: .5rem;
-    padding-bottom: 0;
-  }
-  
+.menu-button-container .menubar {
+  background-size: contain;
+}
 
-.header p{
-    text-align: center;
-    font-size: 2rem;
-    margin: 0.5rem 0 0 0;
-    align-self: center;
-    font-family: 'Lobster', cursive;
+.menu-button-container {
+  padding-top: 0.4rem;
+  padding-left: 0.3rem;
+  padding-bottom: 0;
+}
+
+.header p {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0.3rem 0 0 0;
+  align-self: center;
+  font-family: "Lobster", cursive;
 }

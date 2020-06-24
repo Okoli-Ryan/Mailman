@@ -14,11 +14,8 @@
   font-family: cursive;
 }
 
-body, html, .chat-page, .form-page, .home-container{
+body, html, .chat-page, .form-page, #root, .home-container{
   width: 100%;
-  height: 100%
-}
-
-#root{
+  height: 100%;
   background-color: rgb(244, 252, 253);
 }
