@@ -3,6 +3,7 @@ import Header from "../components/header";
 import { Link, Redirect } from "react-router-dom";
 import {useForm} from '../customHooks/useForm'
 import {useSelector, useDispatch} from 'react-redux';
+import { login } from '../actions/loginAction'
 
 function Login() {
 
@@ -27,7 +28,7 @@ function Login() {
               <input type="password" name="password" onChange={handleChange}/>
             </div>
             <div className="form-submit">
-              <input type="button" className="submit" onClick={() => dispatch({type: 'log-in', payload: userDetails})} value="submit" />
+              <input type="button" className="submit" onClick={() => dispatch(login(userDetails))} value="submit" />
             </div>
             <div className="form-switch">
               switch to <Link to="/signup">Sign up</Link>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/loginAction";
 import { useForm } from "../customHooks/useForm";
-import { Function } from '../services/firebase'
+import {createChatRoom, joinChatRoom, addUserToRoom} from '../actions/menuBarActions'
 
 const stylehide = { left: "-14rem" };
 const styleShow = { left: 0 };
@@ -11,10 +11,32 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const hideMenu = useSelector((state) => state.hideMenuReducer);
   const disableAddUser = useSelector(state => state.menuBarReducer)
+  const createBox = useRef(0), joinBox = useRef(0), addBox = useRef(0)
 
   const createRoom = useForm(),
     joinRoom = useForm(),
     addUser = useForm();
+
+    const submitCreateChatRoom = (e) => {
+      e.preventDefault();
+      dispatch(createChatRoom(createRoom.userDetails))
+      createRoom.setUserDetails({...createRoom.userDetails, roomName: ''})
+      createBox.current.value=""
+    }
+
+    const submitJoinChatRoom = (e) => {
+      e.preventDefault();
+      dispatch(joinChatRoom(joinRoom.userDetails))
+      joinRoom.setUserDetails({...joinRoom.userDetails, roomName: ''})
+      joinBox.current.value=""
+    }
+
+    const submitAddUserToChatRoom = (e) => {
+      e.preventDefault();
+      dispatch(addUserToRoom(addUser.userDetails))
+      addUser.setUserDetails({...addUser.userDetails, username: ''})
+      addBox.current.value=""
+    }
 
   return (
     <div className="menu" style={hideMenu ? stylehide : styleShow}>
@@ -25,7 +47,7 @@ const ContactList = () => {
         ></button>
       </div>
 
-      <div className="create-chatroom-form">
+      <form className="create-chatroom-form">
         <fieldset>
           <legend>Create Chatroom</legend>
           <input
@@ -33,6 +55,7 @@ const ContactList = () => {
             name="roomName"
             className="chatroom-textbox mb"
             placeholder="Chatroom name..."
+            ref={createBox}
             onChange={(e) => createRoom.handleChange(e)}
           />
           <div className="private-public mb">
@@ -44,11 +67,11 @@ const ContactList = () => {
             <label className="text">public</label>
           </div>
 
-          <button onClick={() => dispatch({type: 'create-chatroom', payload: createRoom.userDetails})}>Create</button>
+          <button type='submit' onClick={(e) => submitCreateChatRoom(e)}>Create</button>
         </fieldset>
-      </div>
+      </form>
 
-      <div className="join-chatroom-form">
+      <form className="join-chatroom-form">
         <fieldset>
           <legend>Join Chatroom</legend>
           <input
@@ -56,13 +79,14 @@ const ContactList = () => {
             name="roomName"
             className="chatroom-textbox mb"
             placeholder="Chatroom name..."
+            ref={joinBox}
             onChange={(e) => joinRoom.handleChange(e)}
           />
-          <button onClick={() => dispatch({type: 'join-chatroom', payload: joinRoom.userDetails})}>Join</button>
+          <button onClick={(e) => submitJoinChatRoom(e)}>Join</button>
         </fieldset>
-      </div>
+      </form>
 
-      <div className="add-user-form">
+      <form className="add-user-form">
         <fieldset>
           <legend>Add User</legend>
           <input
@@ -71,11 +95,12 @@ const ContactList = () => {
             className="chatroom-textbox mb"
             placeholder="User name..."
             onChange={(e) => addUser.handleChange(e)}
-            disabled={disableAddUser}
+            disabled={disableAddUser === 'empty'}
+            ref={addBox}
           />
-          <button onClick={() => Function.httpsCallable('findUser')(addUser.userDetails.username).then(user => dispatch({type: 'add-user', payload: user})).catch(err => console.log(err))}>Add</button>
+          <button onClick={(e) => submitAddUserToChatRoom(e)}>Add</button>
         </fieldset>
-      </div>
+      </form>
 
       <div className="logout-chatroom-form">
         <button onClick={() => dispatch(logout())}>Logout</button>

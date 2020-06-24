@@ -34,8 +34,6 @@ exports.findUser = functions.https.onCall((data, context) => {
     .catch((err) => err);
 });
 
-// exports.addUser = functions.https.onCall((data, context) => {
-//   return admin.auth().getUserByEmail(data).then((user) => {
-
-//   });
-// });
+exports.createChatRoom = functions.https.onCall((data, context) => {
+  
+})

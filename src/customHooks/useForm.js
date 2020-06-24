@@ -34,6 +34,6 @@ export const useForm = () => {
     }
 
     return (
-        {handleChange, handleSubmit, handleFormSubmit, handleCheckbox, userDetails}
+        {handleChange, handleSubmit, handleFormSubmit, handleCheckbox, userDetails, setUserDetails}
     )
 }

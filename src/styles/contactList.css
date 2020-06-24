@@ -1,14 +1,15 @@
 .menu {
   /* grid-column: 1 / 2; large devices*/
   /* grid-row: 2 / 4; large devices*/
-  background-color: aliceblue;
+  background-color: rgb(244, 252, 253);
   /* min-width: 10em; large devices*/
   width: 14rem;
   height: 100%;
   position: absolute;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .cancel-container .cancel{

@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 .header{
-    background: hsl(190, 45%, 74%);
-    background: transparent;
-    border-bottom: 1px solid white;
+    background-color: rgb(207, 242, 245);
+    /* border-bottom: 1px solid white; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
 }
 
 .chat-page .header{

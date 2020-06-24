@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-var firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyD5xAMPHxNMUQxHCtuUXDABpTGk8l_sH5s",
     authDomain: "mailman-b292a.firebaseapp.com",
     databaseURL: "https://mailman-b292a.firebaseio.com",
