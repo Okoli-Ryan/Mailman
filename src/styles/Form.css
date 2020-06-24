@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
     min-height: 22rem;
+    background-color: rgb(244, 252, 253);
 }
 
 .form{
@@ -20,6 +20,7 @@
 .form-title{
     font-family: 'lobster', cursive;
     font-size: 2rem;
+    margin: .4rem auto 1.5rem auto;
     text-align: center;
 }
 

@@ -27,6 +27,7 @@
     height: 2.5rem;
     border: none;
     background: url('../menu-bar.svg');
+    margin-top: .1rem;
   }
 
   .menu-button-container .menubar{
