@@ -1,0 +1,13 @@
+button.contact{
+    width: 100%;
+    height: 2rem;
+    background: none;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 1rem;
+    margin-bottom: .2rem;
+}
+
+button.contact:active{
+    outline: none;
+}

@@ -9,7 +9,7 @@ const TextView = () => {
   const message = useForm();
   const textarea = useRef(0);
   const send = () => {
-    console.log('sent')
+    console.log("sent");
     dispatch(sendMessage(message.userDetails.name));
     message.setUserDetails({ ...message.userDetails, name: "" });
     textarea.current.value = "";
@@ -25,7 +25,7 @@ const TextView = () => {
           rows="1"
           ref={textarea}
           disabled={useSelector((state) => state.menuBarReducer) === "empty"}
-          onChange={(e) => message.handleChange(e)}
+          onChange={(e) => message.handleChangeWithCase(e)}
         />
       </div>
       <div className="sendButton-container">

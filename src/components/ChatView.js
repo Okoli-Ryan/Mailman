@@ -2,9 +2,14 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import { Db } from "../services/firebase";
 import { useSelector } from "react-redux";
 import Message from "./message";
+import { useDispatch } from "react-redux";
+import ModalJoin from "./modalJoin";
+import ModalCreate from "./modalCreate";
+import StartChatting from "./startChatting"
 
 const ChatView = () => {
   const [messageList, setMessageList] = useState([]);
+  const dispatch = useDispatch();
   const chatview = useRef(0);
   const room = useSelector((state) => state.menuBarReducer);
 
@@ -26,27 +31,33 @@ const ChatView = () => {
           try {
             const msgList = arrange(doc.data().messages);
             setMessageList(msgList);
+            dispatch({ type: "loading-false" });
           } catch (e) {}
         });
-      return () => unsubscribe();
+      return () => {
+        dispatch({ type: "loading-false" });
+        unsubscribe();
+      };
     }
   }, [room, arrange]);
 
   useEffect(() => {
-    chatview.current.scrollIntoView({ behavior: 'smooth'})
-  }, [messageList])
+    chatview.current.scrollIntoView({ behavior: "smooth" });
+  }, [messageList]);
 
   return (
     <div className="chat-view">
-      {messageList &&
+      <ModalJoin />
+      <ModalCreate />
+      {messageList.length !== 0 ? (
         messageList.map((msg) => (
           <Message
             sender={msg.sender ? msg.sender : "..."}
             reply={msg.text ? msg.text : "..."}
             time={msg.timestamp ? msg.timestamp.seconds : "..."}
           />
-        ))}
-        <div ref={chatview}></div>
+        ))) : <StartChatting/>}
+      <div ref={chatview}></div>
     </div>
   );
 };

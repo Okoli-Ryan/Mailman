@@ -10,21 +10,37 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  /* border-right: 1px solid white; */
+  box-shadow: 5px 5px 10px black;
+  transition: left 0.3s ease-in-out;
 }
 
-.cancel-container .cancel{
+.cancel-container .cancel {
   background-size: contain;
 }
 
 .cancel {
-  background: url('../cancel.svg');
+  background: url("../cancel.svg");
   outline: none;
   width: 2rem;
   height: 2rem;
   position: relative;
-  left: 12rem;
-  padding-top: .5rem;
+  left: 11.7rem;
+  padding-top: 0.5rem;
   border: none;
+}
+
+legend button{
+  background: url('../expand_arrow.png');
+  border: none;
+  position: relative;
+  left: 4rem;
+  width: 1rem;
+  height: 1rem;
+  outline: none;
+  top: -.4rem;
+  background-size: contain;
+  transition: transform .5s ease-in-out
 }
 
 .create-chatroom-form,
@@ -47,8 +63,8 @@
   padding: 0 1rem;
 }
 
-.logout-chatroom-form{
-    width: 80%;
+.logout-chatroom-form {
+  width: 80%;
 }
 
 .create-chatroom-form input[type="text"],
@@ -94,13 +110,18 @@ fieldset {
   border-top: none;
 }
 
-legend{
-    padding-left: .8rem;
+legend {
+  padding-left: 0.8rem;
 }
 
 .private-public {
   display: flex;
   justify-content: space-around;
+}
+
+.contactlist-container {
+  max-height: 7rem;
+  transition: height .5s ease-out
 }
 
 .switch {
@@ -143,7 +164,7 @@ legend{
 }
 
 input:checked + .slider {
-  background-color:#98ccfd;
+  background-color: #98ccfd;
 }
 
 input:focus + .slider {

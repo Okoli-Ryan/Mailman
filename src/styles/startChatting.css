@@ -1,0 +1,29 @@
+/* TODO style for star chatting */
+.start-chatting-container {
+  background: none;
+  width: 40%;
+  position: absolute;
+  height: 30%;
+  max-width: 30rem;
+  min-width: 16rem;
+  max-height: 20rem;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 55%;
+}
+
+.start-chatting-container p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.start-chatting-container p span {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('../menu-bar.svg');
+  background-size: cover;
+  display: inline-block;
+  position: relative;
+  top: .25rem;
+  /* background: grey; */
+}

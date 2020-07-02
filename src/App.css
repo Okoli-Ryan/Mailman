@@ -9,6 +9,10 @@
 @import './styles/message.css';
 @import './styles/formPage.css';
 @import './styles/Form.css';
+@import './styles/contact.css';
+@import './styles/modal.css';
+@import './styles/loading.css';
+@import './styles/startChatting.css';
 
 *{
   font-family: cursive;
