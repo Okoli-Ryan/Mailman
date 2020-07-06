@@ -17,7 +17,7 @@ export const useForm = () => {
     const { target } = e;
     const { name, value } = target;
     e.persist();
-    setUserDetails({ ...userDetails, [name]: value.toLowerCase });
+    setUserDetails({ ...userDetails, [name]: value.toLowerCase() });
   };
 
   const handleCheckbox = (e) => {

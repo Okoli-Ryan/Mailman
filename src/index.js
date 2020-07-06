@@ -15,6 +15,7 @@ export const store = createStore(
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   // )
 );
+//TODO create docs for users on signup, manually add them to firebase
 
 ReactDOM.render(
   <Provider store={store}>

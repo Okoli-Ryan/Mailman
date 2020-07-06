@@ -6,6 +6,7 @@ export const createChatRoom = (payload) => {
     const user = Auth.currentUser;
 
     // check if room exists first, else display modal to join or change group name
+
     dispatch({ type: "loading-true" });
     Db.collection("chatrooms")
       .doc(payload.roomName)
@@ -28,10 +29,10 @@ export const createChatRoom = (payload) => {
             .then(() => {
               Db.collection("users")
                 .doc(Auth.currentUser.email)
-                .set({
-                  rooms: [payload.roomName],
-                });
-            })
+                .update({
+                  rooms: FieldValue.arrayUnion(payload.roomName) });
+                })
+                
             .then(() => {
               console.log("created");
               dispatch({ type: "set-current-room", payload: payload.roomName });
@@ -96,15 +97,19 @@ export const joinChatRoom = (payload) => {
                 type: "set-current-room",
                 payload: getState().menuBarReducer,
               });
+              dispatch({type: 'loading-false'})
               dispatch({ type: "show-error-modal" });
             });
         } else {
           dispatch({ type: "set", payload: payload.roomName });
+          dispatch({type: 'loading-false'});
           dispatch({ type: "show-create-modal" });
         }
       })
-      .catch(() => {
-        dispatch({ type: "set-current-room" });
+      .catch((e) => {
+        console.log(e)
+        dispatch({type: 'loading-false'})
+        dispatch({ type: "set-current-room", payload: getState().menuBarReducer });
         dispatch({ type: "show-error-modal" });
       });
   };

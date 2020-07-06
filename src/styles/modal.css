@@ -16,6 +16,7 @@
   border-radius: 1rem;
   box-shadow: 5px 5px 10px black;
   transition: transform 0.3s ease-in-out;
+  z-index: 5;
 }
 
 .modal-join,

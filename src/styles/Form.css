@@ -1,82 +1,85 @@
-.form-container{
-    grid-area: 2 / 1 / 3 / 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 22rem;
-    background-color: rgb(244, 252, 253);
+.form-container {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 22rem;
+  background-color: rgb(244, 252, 253);
 }
 
-.form{
-    width: 80%;
-    max-width: 30rem;
-    height: 20rem;
-    margin-top: 1rem;
-    background: rgb(207, 242, 245);
-    border-radius: 1rem;
-    box-shadow: 0 20px 50px rgba(29, 29, 29, 0.7)
+.form {
+  width: 80%;
+  max-width: 30rem;
+  height: 20rem;
+  margin-top: 1rem;
+  background: rgb(207, 242, 245);
+  border-radius: 1rem;
+  box-shadow: 0 20px 50px rgba(29, 29, 29, 0.7);
 }
 
-.form-title{
-    font-family: 'lobster', cursive;
-    font-size: 2rem;
-    margin: .4rem auto 1.5rem auto;
-    text-align: center;
+.form-title {
+  font-family: "lobster", cursive;
+  font-size: 2rem;
+  margin: 0.4rem auto 1.5rem auto;
+  text-align: center;
 }
 
-input[type=button] {
-    box-sizing: border-box;
-    width: 60%;
-    margin: .25rem auto;
-    background: white;
-    outline: none;
-    font-size: 1rem;
+input[type="button"] {
+  box-sizing: border-box;
+  width: 60%;
+  margin: 0.25rem auto;
+  background: white;
+  outline: none;
+  font-size: 1rem;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=button]:hover{
-    box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="button"]:hover {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-input[type=button]:click{
-    box-shadow: none;
+input[type="button"]:focus {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
 }
 
-
-.username, .password, .form-submit{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 1rem 1rem 0 1rem;
+.username,
+.password,
+.form-submit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem 1rem 0 1rem;
 }
 
-.username label, .password label{
-    margin: 0 .5rem .2rem .5rem;
+.username label,
+.password label {
+  margin: 0 0.5rem 0.2rem 0.5rem;
 }
 
-.username input, .password input, .submit{
-    height: 2rem;
-    border-radius: 1rem;
-    border: none;
-    padding: 0 .5rem 0 .5rem;
-    /* background: linear-gradient(to right, hsl(190, 45%, 74%)
+.username input,
+.password input,
+.submit {
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 0 0.5rem 0 0.5rem;
+  /* background: linear-gradient(to right, hsl(190, 45%, 74%)
     , pink); */
 }
 
-.form-switch{
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    font-size: .8rem
+.form-switch {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
 }
 
-.form-switch a{
-    margin-left: .3rem;
-    text-decoration: none;
-    color: rgba(20, 4, 247, 0.993)
+.form-switch a {
+  margin-left: 0.3rem;
+  text-decoration: none;
+  color: rgba(20, 4, 247, 0.993);
 }
