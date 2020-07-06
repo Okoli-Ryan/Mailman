@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .menu {
   /* grid-column: 1 / 2; large devices*/
   /* grid-row: 2 / 4; large devices*/
@@ -5,14 +12,23 @@
   /* min-width: 10em; large devices*/
   width: 14rem;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
   /* border-right: 1px solid white; */
+  -webkit-box-shadow: 5px 5px 10px black;
   box-shadow: 5px 5px 10px black;
+  -webkit-transition: left 0.3s ease-in-out;
+  -o-transition: left 0.3s ease-in-out;
   transition: left 0.3s ease-in-out;
+  z-index: 20;
 }
 
 .cancel-container .cancel {
@@ -30,25 +46,37 @@
   border: none;
 }
 
-legend button{
-  background: url('../expand_arrow.png');
+legend button,
+.k button {
+  background: url("../expand_arrow.png");
   border: none;
-  position: relative;
-  left: 4rem;
   width: 1rem;
   height: 1rem;
   outline: none;
-  top: -.4rem;
+  display: block;
+  margin-left: 180%;
+  margin-top: -18%;
   background-size: contain;
-  transition: transform .5s ease-in-out
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 
 .create-chatroom-form,
 .join-chatroom-form,
 .add-user-form,
 .logout-chatroom-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 1rem;
   width: 100%;
@@ -57,8 +85,11 @@ legend button{
 .logout-chatroom-form {
   position: relative;
   bottom: 0;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   padding: 0 1rem;
 }
@@ -76,6 +107,7 @@ legend button{
   border: none;
   margin: auto auto;
   padding: 0 0.8rem;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 0.5rem;
 }
@@ -91,6 +123,14 @@ button {
   border-radius: 1rem;
   height: 2rem;
   border: none;
+  background: -webkit-linear-gradient(
+    linear,
+    left top,
+    right top,
+    from(aliceblue),
+    to(white)
+  );
+  background: -o-linear-gradient(left, aliceblue, white);
   background: linear-gradient(to right, aliceblue, white);
   outline: none;
   width: 100%;
@@ -110,18 +150,24 @@ fieldset {
   border-top: none;
 }
 
-legend {
+legend,
+.k {
   padding-left: 0.8rem;
 }
 
 .private-public {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
 .contactlist-container {
   max-height: 7rem;
-  transition: height .5s ease-out
+  -webkit-transition: height 0.5s ease-out;
+  -o-transition: height 0.5s ease-out;
+  transition: height 0.5s ease-out;
 }
 
 .switch {
@@ -148,6 +194,7 @@ legend {
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -160,6 +207,7 @@ legend {
   bottom: 0;
   background-color: white;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -168,6 +216,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #98ccfd;
   box-shadow: 0 0 1px #98ccfd;
 }
 

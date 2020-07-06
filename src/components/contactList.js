@@ -141,12 +141,14 @@ const ContactList = () => {
       <div className="contact-form">
         <fieldset>
           <legend>
-            <span>Select Room</span>
-            <button
-              className="dropdown-button"
-              style={showContacts ? buttonPointDown : buttonPointRight}
-              onClick={() => dispatch({ type: "toggle-contacts" })}
-            ></button>
+            <span>
+              Select Room
+              <button
+                className="dropdown-button"
+                style={showContacts ? buttonPointDown : buttonPointRight}
+                onClick={() => dispatch({ type: "toggle-contacts" })}
+              ></button>
+            </span>
           </legend>
           <div
             className="contactlist-container"
