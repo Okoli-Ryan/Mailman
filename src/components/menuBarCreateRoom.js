@@ -23,50 +23,48 @@ const MenuBarCreateRoom = () => {
 
   return (
     <form className="create-chatroom-form" autocomplete="off">
-      <fieldset>
-        <legend>
-          <span onClick={() => dispatch({ type: "toggle-create" })}>
-            Create Room
-            <button
-              className="dropdown-button"
-              style={showCreate ? buttonPointDown : buttonPointRight}
-              onClick={(e) => e.preventDefault()}
-            ></button>
-          </span>
-        </legend>
-        <div
-          className="contactlist-container"
-          style={showCreate ? contactListShow : contactListHide}
-        >
-          <input
-            type="text"
-            name="roomName"
-            className="chatroom-textbox mb"
-            placeholder="Chatroom name..."
-            ref={createBox}
-            onChange={(e) => createRoom.handleChange(e)}
-          />
-          <div className="private-public mb">
-            <label className="text">Public Room</label>
-            <label className="switch">
-              <input
-                type="checkbox"
-                onChange={(e) => createRoom.handleCheckbox(e)}
-                name="public"
-              />
-              <span className="slider round"></span>
-            </label>
-          </div>
-
-          <button
-            type="submit"
-            disabled={createRoom.userDetails.roomName === ""}
-            onClick={(e) => submitCreateChatRoom(e)}
-          >
-            Create
-          </button>
+      <div
+        className="menubar-option"
+        onClick={() => dispatch({ type: "toggle-create" })}
+      >
+        <span className="menubar-select-room">Create Room</span>
+        <span
+          className="menubar-dropdown"
+          style={showCreate ? buttonPointDown : buttonPointRight}
+        ></span>
+      </div>
+      <div
+        className="contactlist-container"
+        style={showCreate ? contactListShow : contactListHide}
+      >
+        <input
+          type="text"
+          name="roomName"
+          className="chatroom-textbox mb"
+          placeholder="Chatroom name..."
+          ref={createBox}
+          onChange={(e) => createRoom.handleChange(e)}
+        />
+        <div className="private-public mb">
+          <label className="text">Public Room</label>
+          <label className="switch">
+            <input
+              type="checkbox"
+              onChange={(e) => createRoom.handleCheckbox(e)}
+              name="public"
+            />
+            <span className="slider round"></span>
+          </label>
         </div>
-      </fieldset>
+
+        <button
+          type="submit"
+          disabled={createRoom.userDetails.roomName === ""}
+          onClick={(e) => submitCreateChatRoom(e)}
+        >
+          Create
+        </button>
+      </div>
     </form>
   );
 };

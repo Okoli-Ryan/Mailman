@@ -45,8 +45,7 @@ const MenuBarAddFriend = () => {
 
   return (
     <form className="friend-form" autocomplete="off">
-      <fieldset>
-        <legend>
+        {/* <legend>
           <span onClick={() => dispatch({ type: "toggle-friends" })}>
             Add Friend
             <button
@@ -55,7 +54,17 @@ const MenuBarAddFriend = () => {
               onClick={(e) => e.preventDefault()}
             ></button>
           </span>
-        </legend>
+        </legend> */}
+        <div
+          className="menubar-option"
+          onClick={() => dispatch({ type: "toggle-friends" })}
+        >
+          <span className="menubar-select-room">Friend List</span>
+          <span
+            className="menubar-dropdown"
+            style={showFriends ? buttonPointDown : buttonPointRight}
+          ></span>
+        </div>
         <div
           className="contactlist-container"
           style={showFriends ? contactListShow : contactListHide}
@@ -72,7 +81,9 @@ const MenuBarAddFriend = () => {
             type="submit"
             disabled={addFriendForm.userDetails.friend === ""}
             onClick={(e) => submitAddFriend(e)}
-          >Add Friend</button>
+          >
+            Add Friend
+          </button>
           {userFriendsList.length !== 0 ? (
             userFriendsList
               .sort()
@@ -81,7 +92,6 @@ const MenuBarAddFriend = () => {
             <LoadingMenu />
           )}
         </div>
-      </fieldset>
     </form>
   );
 };

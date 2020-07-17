@@ -22,37 +22,35 @@ const MenuBarJoinRoom = () => {
 
   return (
     <form className="join-chatroom-form" autocomplete="off">
-      <fieldset>
-        <legend>
-          <span onClick={() => dispatch({ type: "toggle-join" })}>
-            Join A Room
-            <button
-              className="dropdown-button"
-              style={showJoin ? buttonPointDown : buttonPointRight}
-              onClick={(e) => e.preventDefault()}
-            ></button>
-          </span>
-        </legend>
-        <div
-          className="contactlist-container"
-          style={showJoin ? contactListShow : contactListHide}
+      <div
+        className="menubar-option"
+        onClick={() => dispatch({ type: "toggle-join" })}
+      >
+        <span className="menubar-select-room">Join A Room</span>
+        <span
+          className="menubar-dropdown"
+          style={showJoin ? buttonPointDown : buttonPointRight}
+        ></span>
+      </div>
+      <div
+        className="contactlist-container"
+        style={showJoin ? contactListShow : contactListHide}
+      >
+        <input
+          type="text"
+          name="roomName"
+          className="chatroom-textbox mb"
+          placeholder="Chatroom name..."
+          ref={joinBox}
+          onChange={(e) => joinRoom.handleChange(e)}
+        />
+        <button
+          disabled={joinRoom.userDetails.roomName === ""}
+          onClick={(e) => submitJoinChatRoom(e)}
         >
-          <input
-            type="text"
-            name="roomName"
-            className="chatroom-textbox mb"
-            placeholder="Chatroom name..."
-            ref={joinBox}
-            onChange={(e) => joinRoom.handleChange(e)}
-          />
-          <button
-            disabled={joinRoom.userDetails.roomName === ""}
-            onClick={(e) => submitJoinChatRoom(e)}
-          >
-            Join
-          </button>
-        </div>
-      </fieldset>
+          Join
+        </button>
+      </div>
     </form>
   );
 };

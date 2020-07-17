@@ -30,16 +30,16 @@
   scrollbar-color: #cff2f5 transparent;
 }
 
-.menu{
+.menu {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.menu-logout{
+.menu-logout {
   display: flex;
   height: 100%;
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 .menu-container::-webkit-scrollbar {
@@ -98,24 +98,6 @@
   padding-right: 1.5rem;
 }
 
-legend span > button,
-.k button {
-  background: url("../expand_arrow.png");
-  border: none;
-  width: 1rem;
-  height: 1rem;
-  outline: none;
-  display: block;
-  margin-left: 180%;
-  margin-top: -18%;
-  background-size: contain;
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  -o-transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-}
-
 .contact-form {
   border-top: 1px solid black;
 }
@@ -125,7 +107,7 @@ legend span > button,
 .add-user-form,
 .logout-chatroom-form,
 .friend-form,
-.contact-form{
+.contact-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,23 +118,8 @@ legend span > button,
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding-top: 0.8rem;
   width: 100%;
-}
-
-.contact-form,
-.friend-form {
-  padding-top: 0.8rem;
-}
-
-.friend-form
-  > fieldset:nth-child(1)
-  > legend:nth-child(1)
-  > span:nth-child(1)
-  > button:nth-child(1) {
-  transform: rotateZ(270deg);
-  margin-left: 198%;
-  margin-top: -21%;
+  border-bottom: 1px solid black;
 }
 
 .logout-chatroom-form {
@@ -166,6 +133,7 @@ legend span > button,
   transform: translateX(-50%);
   padding: 0.8rem 1rem;
   width: 80%;
+  border-bottom: 0;
 }
 
 .chatroom-textbox {
@@ -184,33 +152,19 @@ button {
   cursor: pointer;
 }
 
-.create-chatroom-form {
-  padding-top: 0.8rem;
-}
-
 .contactlist-container button,
 .logout-chatroom-form button {
   border-radius: 1rem;
   height: 2rem;
   border: none;
-  /* background: -webkit-linear-gradient(
-    linear,
-    left top,
-    right top,
-    from(aliceblue),
-    to(white)
-  ); */
   background: #cff2f5;
-    /* background: -o-linear-gradient(left, aliceblue, white); */
-  /* background: linear-gradient(to right, aliceblue, white); */
   outline: none;
   width: 100%;
   transition: background 0.3s;
 }
 
-.contactlist-container button:hover
-{
-  background: #a5b5b7
+.contactlist-container button:hover {
+  background: #a5b5b7;
 }
 
 .logout-chatroom-form > button:nth-child(1) {
@@ -224,17 +178,6 @@ button {
 
 .mb {
   margin-bottom: 0.6rem;
-}
-
-fieldset {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-}
-
-legend,
-.k {
-  padding-left: 0.8rem;
 }
 
 .private-public {
@@ -252,9 +195,11 @@ legend,
   -o-transition: height 0.5s ease-out;
   transition: height 0.5s ease-out;
   overflow-y: scroll;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #cff2f5 transparent;
   position: relative;
+  padding: 0 0.5rem;
 }
 
 .switch {
@@ -322,51 +267,45 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Element | http://localhost:3000/chatpage */
-
-.create-chatroom-form
-  > fieldset:nth-child(1)
-  > legend:nth-child(1)
-  > span:nth-child(1)
-  > button:nth-child(1) {
-  margin-left: 171%;
+button:focus,
+input:focus {
+  outline: none;
 }
 
-/* Inline #7 | http://localhost:3000/chatpage */
-
-legend span > button,
-.k button {
-  /* margin-left: 180%; */
-  margin-left: 175%;
+.menubar-container {
+  display: flex;
+  align-items: center;
 }
 
-/* Element | http://localhost:3000/chatpage */
-
-.friend-form
-  > fieldset:nth-child(1)
-  > legend:nth-child(1)
-  > span:nth-child(1)
-  > button:nth-child(1) {
-  margin-left: 193.5%;
+.menubar-option {
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 2.8rem;
 }
 
-.add-user-form
-  > fieldset:nth-child(1)
-  > legend:nth-child(1)
-  > span:nth-child(1)
-  > button:nth-child(1) {
-  margin-left: 116%;
-  margin-top: -12%;
+.menubar-select-room {
+  display: flex;
+  width: 100%;
+  font-size: 1rem;
+  padding-left: 0.8rem;
 }
 
-.add-user-form > fieldset:nth-child(1) > legend:nth-child(1) {
-  height: 1.5rem;
- }
- 
-
-/* Element | http://localhost:3000/chatpage */
-
-.friend-form > fieldset:nth-child(1) > div:nth-child(2) > button:nth-child(2) {
-  /* position: inherit; */
-  margin-bottom: .5rem;
+.menubar-dropdown {
+  display: flex;
+  justify-content: right;
+  background: url("../expand_arrow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.53rem;
+  margin-top: 0.23rem;
+  transition: transform 0.5s ease-in-out;
 }

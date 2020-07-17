@@ -1,25 +1,32 @@
-@import './styles/header.css';
-@import './styles/Home.css';
-@import './styles/Form.css';
-@import './styles/TextField.css';
-@import './styles/contactList.css';
-@import './styles/contact.css';
-@import './styles/ChatView.css';
-@import './styles/ChatPage.css';
-@import './styles/message.css';
-@import './styles/formPage.css';
-@import './styles/Form.css';
-@import './styles/contact.css';
-@import './styles/modal.css';
-@import './styles/loading.css';
-@import './styles/startChatting.css';
+@import "./styles/header.css";
+@import "./styles/Home.css";
+@import "./styles/Form.css";
+@import "./styles/TextField.css";
+@import "./styles/contactList.css";
+@import "./styles/contact.css";
+@import "./styles/ChatView.css";
+@import "./styles/ChatPage.css";
+@import "./styles/message.css";
+@import "./styles/formPage.css";
+@import "./styles/Form.css";
+@import "./styles/contact.css";
+@import "./styles/modal.css";
+@import "./styles/loading.css";
+@import "./styles/startChatting.css";
 
-*{
+* {
   font-family: cursive;
 }
 
-body, html, .chat-page, .form-page, #root, .home-container{
+body,
+html,
+.chat-page,
+.form-page,
+#root,
+.home-container {
   width: 100%;
   height: 100%;
   background-color: rgb(244, 252, 253);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }

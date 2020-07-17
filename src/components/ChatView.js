@@ -34,6 +34,7 @@ const ChatView = () => {
             const msgList = arrange(doc.data().messages);
             setMessageList(msgList);
             dispatch({ type: "loading-false" });
+            dispatch({type: 'hide'})
           } catch (e) {}
         });
       return () => {

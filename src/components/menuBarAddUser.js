@@ -24,38 +24,36 @@ const MenuBarAddUser = () => {
 
   return (
     <form className="add-user-form" autocomplete="off">
-      <fieldset>
-        <legend>
-          <span onClick={() => dispatch({ type: "toggle-add-user" })}>
-            Add User To Room
-            <button
-              className="dropdown-button"
-              style={showAddUser ? buttonPointDown : buttonPointRight}
-              onClick={(e) => e.preventDefault()}
-            ></button>
-          </span>
-        </legend>
-        <div
-          className="contactlist-container"
-          style={showAddUser ? contactListShow : contactListHide}
+      <div
+        className="menubar-option"
+        onClick={() => dispatch({ type: "toggle-add-user" })}
+      >
+        <span className="menubar-select-room">Add User To Room</span>
+        <span
+          className="menubar-dropdown"
+          style={showAddUser ? buttonPointDown : buttonPointRight}
+        ></span>
+      </div>
+      <div
+        className="contactlist-container"
+        style={showAddUser ? contactListShow : contactListHide}
+      >
+        <input
+          type="text"
+          name="username"
+          className="chatroom-textbox mb"
+          placeholder="User name..."
+          disabled={disableAddUser === "empty"}
+          ref={addBox}
+          onChange={(e) => addUser.handleChange(e)}
+        />
+        <button
+          disabled={disableAddUser === "empty"}
+          onClick={(e) => submitAddUserToChatRoom(e)}
         >
-          <input
-            type="text"
-            name="username"
-            className="chatroom-textbox mb"
-            placeholder="User name..."
-            disabled={disableAddUser === "empty"}
-            ref={addBox}
-            onChange={(e) => addUser.handleChange(e)}
-          />
-          <button
-            disabled={disableAddUser === "empty"}
-            onClick={(e) => submitAddUserToChatRoom(e)}
-          >
-            Add
-          </button>
-        </div>
-      </fieldset>
+          Add
+        </button>
+      </div>
     </form>
   );
 };
