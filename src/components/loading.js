@@ -5,7 +5,7 @@ const Loading = () => {
   const displayLoading = useSelector((state) => state.loadingReducer);
   return (
     displayLoading && (
-      <div className="loading">
+      <div className="loading fixed">
         <div className="loading-container"></div>
       </div>
     )

@@ -16,7 +16,7 @@ const TextView = () => {
   };
 
   return (
-    <div className="textview">
+    <div className="textview" onClick={() => dispatch({type: 'hide'})}>
       <div className="message-view-container">
         <textarea
           placeholder="Send a message..."

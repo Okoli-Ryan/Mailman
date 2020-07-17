@@ -59,7 +59,7 @@
   border-radius: 2rem;
   width: 100%;
   background: white;
-  padding: .5rem 1.2rem .2rem 1.2rem;
+  padding: .4rem 1.2rem .2rem 1.2rem;
   border: none;
   resize: none;
   min-height: 2.2rem;
@@ -67,6 +67,8 @@
   max-height: 4rem;
   overflow: hidden;
   transition: height .1s ease-in-out;
+  scrollbar-width: thin;
+  scrollbar-color: #98ccfd transparent;
 }
 
 .message-view:focus{

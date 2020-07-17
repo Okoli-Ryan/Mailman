@@ -1,26 +1,87 @@
-.message{
-    padding: .4rem 1rem .4rem 1rem;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
-    max-width: 60%
+.message {
+  padding: 0.4rem 1rem 0.4rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  max-width: 60%;
+  position: relative;
 }
 
-.message-container{
-    display: flex;
-    flex-direction: column;
+.message-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.message .sender{
-    font-size: .8rem;
-    font-weight: bolder;
-    margin-bottom: .5rem;
-    color: rgb(39, 39, 39)
+.message .sender {
+  font-size: 0.8rem;
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+  color: rgb(39, 39, 39);
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid black;
 }
 
-.message .time{
-    margin-top: .5rem;
-    font-size: .7rem;
-    color: rgb(39, 39, 39)
+.message .sender span.message-options {
+  width: max-content;
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+  transition: color .1s ease-in-out;
+}
+
+.message-options:hover {
+  color: beige;
+}
+
+.message-email {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.message .time {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: rgb(39, 39, 39);
+}
+
+.opt-menu {
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  position: absolute;
+  height: max-content;
+  right: 0;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  transition: top .5s ease-in-out;
+  margin-right: 1.8rem;
+}
+
+.opt-button {
+  height: inherit;
+  width: 100%;
+  background: white;
+  border: none;
+  outline: none;
+  padding: 0.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.opt-button:hover {
+  background-color: #ccc;
+}
+
+.opt-button:nth-child(1) {
+  border-right: 1px solid black;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.opt-button:nth-child(2) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

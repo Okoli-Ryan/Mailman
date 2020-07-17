@@ -11,7 +11,7 @@ const ModalError = () => {
       style={showModalError ? showModal : hideModal}
       className="modal modal-error"
     >
-      <p className="modal-text">Network Error, try again later</p>
+      <p className="modal-text">An Error Occurred</p>
       <div className="modal-button-container">
         <button
           onClick={() => dispatch({ type: "hide-error-modal" })}

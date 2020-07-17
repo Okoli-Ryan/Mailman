@@ -5,11 +5,8 @@
 * Browsers: last 4 version
 */
 
-.menu {
-  /* grid-column: 1 / 2; large devices*/
-  /* grid-row: 2 / 4; large devices*/
+.menu-container {
   background-color: rgb(244, 252, 253);
-  /* min-width: 10em; large devices*/
   width: 14rem;
   height: 100%;
   position: fixed;
@@ -20,7 +17,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   /* border-right: 1px solid white; */
   -webkit-box-shadow: 5px 5px 10px black;
@@ -29,6 +26,24 @@
   -o-transition: left 0.3s ease-in-out;
   transition: left 0.3s ease-in-out;
   z-index: 20;
+  scrollbar-width: thin;
+  scrollbar-color: #cff2f5 transparent;
+}
+
+.menu{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-logout{
+  display: flex;
+  height: 100%;
+  align-items: flex-end
+}
+
+.menu-container::-webkit-scrollbar {
+  display: none;
 }
 
 .cancel-container .cancel {
@@ -41,12 +56,49 @@
   width: 2rem;
   height: 2rem;
   position: relative;
-  left: 11.7rem;
+  left: 11.4rem;
   padding-top: 0.5rem;
   border: none;
+  display: block;
+  margin-top: 0.5rem;
 }
 
-legend button,
+.active-email-container {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.active-email-container span {
+  background: url("../account.png");
+  background-size: contain;
+  border: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+  position: relative;
+  top: 0.2rem;
+}
+
+.current-user-email {
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.user-email-inner-container {
+  background: white;
+  height: 2rem;
+  width: max-content;
+  border-radius: 10rem;
+  margin-bottom: 0.4rem;
+  padding: 0.3rem;
+  padding-top: 0;
+  padding-right: 1.5rem;
+}
+
+legend span > button,
 .k button {
   background: url("../expand_arrow.png");
   border: none;
@@ -64,10 +116,16 @@ legend button,
   transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 
+.contact-form {
+  border-top: 1px solid black;
+}
+
 .create-chatroom-form,
 .join-chatroom-form,
 .add-user-form,
-.logout-chatroom-form {
+.logout-chatroom-form,
+.friend-form,
+.contact-form{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,8 +136,23 @@ legend button,
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  padding-top: 0.8rem;
   width: 100%;
+}
+
+.contact-form,
+.friend-form {
+  padding-top: 0.8rem;
+}
+
+.friend-form
+  > fieldset:nth-child(1)
+  > legend:nth-child(1)
+  > span:nth-child(1)
+  > button:nth-child(1) {
+  transform: rotateZ(270deg);
+  margin-left: 198%;
+  margin-top: -21%;
 }
 
 .logout-chatroom-form {
@@ -91,16 +164,11 @@ legend button,
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  padding: 0 1rem;
-}
-
-.logout-chatroom-form {
+  padding: 0.8rem 1rem;
   width: 80%;
 }
 
-.create-chatroom-form input[type="text"],
-.join-chatroom-form input[type="text"],
-.add-user-form input[type="text"] {
+.chatroom-textbox {
   border-radius: 1rem;
   width: 100%;
   height: 2rem;
@@ -116,24 +184,38 @@ button {
   cursor: pointer;
 }
 
-.create-chatroom-form button,
-.join-chatroom-form button,
-.add-user-form button,
+.create-chatroom-form {
+  padding-top: 0.8rem;
+}
+
+.contactlist-container button,
 .logout-chatroom-form button {
   border-radius: 1rem;
   height: 2rem;
   border: none;
-  background: -webkit-linear-gradient(
+  /* background: -webkit-linear-gradient(
     linear,
     left top,
     right top,
     from(aliceblue),
     to(white)
-  );
-  background: -o-linear-gradient(left, aliceblue, white);
-  background: linear-gradient(to right, aliceblue, white);
+  ); */
+  background: #cff2f5;
+    /* background: -o-linear-gradient(left, aliceblue, white); */
+  /* background: linear-gradient(to right, aliceblue, white); */
   outline: none;
   width: 100%;
+  transition: background 0.3s;
+}
+
+.contactlist-container button:hover
+{
+  background: #a5b5b7
+}
+
+.logout-chatroom-form > button:nth-child(1) {
+  background: black;
+  color: #cff2f5;
 }
 
 .text {
@@ -160,14 +242,19 @@ legend,
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 0.8rem;
 }
 
 .contactlist-container {
-  max-height: 7rem;
+  max-height: 6.5rem;
   -webkit-transition: height 0.5s ease-out;
   -o-transition: height 0.5s ease-out;
   transition: height 0.5s ease-out;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #cff2f5 transparent;
+  position: relative;
 }
 
 .switch {
@@ -233,4 +320,53 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Element | http://localhost:3000/chatpage */
+
+.create-chatroom-form
+  > fieldset:nth-child(1)
+  > legend:nth-child(1)
+  > span:nth-child(1)
+  > button:nth-child(1) {
+  margin-left: 171%;
+}
+
+/* Inline #7 | http://localhost:3000/chatpage */
+
+legend span > button,
+.k button {
+  /* margin-left: 180%; */
+  margin-left: 175%;
+}
+
+/* Element | http://localhost:3000/chatpage */
+
+.friend-form
+  > fieldset:nth-child(1)
+  > legend:nth-child(1)
+  > span:nth-child(1)
+  > button:nth-child(1) {
+  margin-left: 193.5%;
+}
+
+.add-user-form
+  > fieldset:nth-child(1)
+  > legend:nth-child(1)
+  > span:nth-child(1)
+  > button:nth-child(1) {
+  margin-left: 116%;
+  margin-top: -12%;
+}
+
+.add-user-form > fieldset:nth-child(1) > legend:nth-child(1) {
+  height: 1.5rem;
+ }
+ 
+
+/* Element | http://localhost:3000/chatpage */
+
+.friend-form > fieldset:nth-child(1) > div:nth-child(2) > button:nth-child(2) {
+  /* position: inherit; */
+  margin-bottom: .5rem;
 }

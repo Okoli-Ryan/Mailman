@@ -6,7 +6,8 @@ export const signUp = (payload) => {
     Auth.createUserWithEmailAndPassword(payload.email, payload.password)
       .then(() => {
         Db.collection("users").doc(payload.email).set({
-          rooms: []
+          rooms: [],
+          friends: []
         });
       })
       .then(() => {

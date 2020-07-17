@@ -5,6 +5,7 @@
   /* border-bottom: 1px solid white; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  max-height: 3.3rem;
 }
 
 .chat-page .header {

@@ -1,8 +1,8 @@
-import React, { useCallback} from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { joinChatRoom } from '../actions/menuBarActions'
-const showModal = {transform: 'scale(1) translate(-50%, -50%)'}
-const hideModal = {transform: 'scale(0) translate(-50%, -50%)'}
+const showModal = {transform: 'scale(1) translate(-50%, -135%)'}
+const hideModal = {transform: 'scale(0) translate(-50%, -135%)'}
 
 const ModalJoin = () => {
   const dispatch = useDispatch();

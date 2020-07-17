@@ -5,6 +5,7 @@ import Message from "./message";
 import { useDispatch } from "react-redux";
 import ModalJoin from "./modalJoin";
 import ModalCreate from "./modalCreate";
+import ModalUpdate from './modalUpdate'
 import StartChatting from "./startChatting"
 
 const ChatView = () => {
@@ -14,7 +15,8 @@ const ChatView = () => {
   const room = useSelector((state) => state.menuBarReducer);
 
   const arrange = useCallback((e) => {
-    const array = Object.values(e);
+    // const array = Object.values(e);
+    const array = Object.entries(e).map(val => Object.assign({ ...val[1], key: val[0] }))
     array.sort((a, b) => {
       const w = a.timestamp.seconds > b.timestamp.seconds ? 1 : -1;
       return w;
@@ -45,16 +47,22 @@ const ChatView = () => {
     chatview.current.scrollIntoView({ behavior: "smooth" });
   }, [messageList]);
 
+  // const formatTime = (time) => {
+  //   const 
+  // }
+
   return (
-    <div className="chat-view">
+    <div className="chat-view" onClick={() => dispatch({type: 'hide'})}>
       <ModalJoin />
       <ModalCreate />
+      <ModalUpdate/>
       {messageList.length !== 0 ? (
         messageList.map((msg) => (
           <Message
             sender={msg.sender ? msg.sender : "..."}
             reply={msg.text ? msg.text : "..."}
-            time={msg.timestamp ? msg.timestamp.seconds : "..."}
+            time={msg.timestamp ? msg.timestamp.toDate() : "..."}
+            _key={msg.key}
           />
         ))) : <StartChatting/>}
       <div ref={chatview}></div>

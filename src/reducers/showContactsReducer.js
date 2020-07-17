@@ -3,7 +3,7 @@ const showContactsReducer = (state = false, action) => {
     case "toggle-contacts":
       return !state;
     default:
-      return false;
+      return state;
   }
 };
 

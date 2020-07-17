@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/home";
-// import Chat from './pages/chat'
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
-// import {auth} from './services/firebase'
 import ChatPage from "./pages/ChatPage";
 import PrivateRoute from "./components/PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,7 +38,6 @@ function App() {
           component={ChatPage}
           exact
         />
-        {/* <ChatPage></ChatPage> */}
       </Router>
     </>
   );

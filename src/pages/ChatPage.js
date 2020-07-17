@@ -10,6 +10,7 @@ const ChatPage = () => {
 
   useEffect(() => {
     dispatch({type: 'loading-false'})
+    dispatch({type: 'display'})
   }, [])
   return (
     <div className="chat-page">

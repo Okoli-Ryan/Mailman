@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../actions/loginAction";
 
 export const useForm = () => {
-  const [userDetails, setUserDetails] = useState({ public: false });
+  const [userDetails, setUserDetails] = useState({ public: false, roomName: '', friend: '' });
   const dispatch = useDispatch();
 
   const handleChange = (e) => {

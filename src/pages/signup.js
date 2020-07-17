@@ -27,11 +27,17 @@ function Signup() {
                 name="email"
                 className="login-username"
                 onChange={handleChange}
+                autocomplete="off"
               />
             </div>
             <div className="password">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={handleChange} />
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                autocomplete="off"
+              />
             </div>
             <div className="form-submit">
               <input
