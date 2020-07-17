@@ -13,6 +13,7 @@
   box-shadow: 5px 5px 10px black;
   transition: transform 0.3s ease-in-out;
   z-index: 5;
+  min-height: 9rem;
 }
 
 .modal-join,
@@ -37,7 +38,7 @@
   height: 1.5rem;
 width: 100%;
 margin-top: -5.5rem;
-position: absolute;
+position: relative;
 }
 
 .modal-update .textview{
@@ -48,10 +49,6 @@ position: absolute;
 .modal-update .cancel-container .cancel {
   left: -0.8rem;
   top: -1.3rem;
-}
-
-.chat-view .modal-update{
-  max-height: 9rem;
 }
 
 .modal-text {

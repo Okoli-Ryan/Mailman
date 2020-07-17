@@ -18,7 +18,7 @@ function Login() {
         <Header />
         <div className="form-container">
           <form className="form">
-            <div className="form-title">{/* user icon */}Login</div>
+            <div className="form-title">Login</div>
             <div className="username">
               <label htmlFor="email">Email</label>
               <input
