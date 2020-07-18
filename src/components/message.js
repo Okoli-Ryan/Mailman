@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Auth } from "../services/firebase";
 import { useDispatch } from "react-redux";
-import { deleteMessage, updateMessage } from "../actions/UDmessageAction";
+import { deleteMessage } from "../actions/UDmessageAction";
 
 const meMessage = {
   message: {

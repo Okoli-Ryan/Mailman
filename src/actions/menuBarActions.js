@@ -49,6 +49,7 @@ export const createChatRoom = (payload) => {
             });
         } else {
           //if document exists, show join modal
+          dispatch({type: 'hide'})
           dispatch({ type: "set", payload: payload.roomName });
           dispatch({ type: "loading-false" });
           dispatch({
