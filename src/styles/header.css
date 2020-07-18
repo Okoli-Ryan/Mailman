@@ -3,9 +3,29 @@
 .header {
   background-color: rgb(207, 242, 245);
   /* border-bottom: 1px solid white; */
+  max-height: 4.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-content{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  max-height: 3.3rem;
+height: 70%;
+}
+
+.room-name{
+  height: 30%;
+  justify-content: center;
+  display: flex;
+  border: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.room-name p{
+  font-size: .8rem;
+margin: 0
 }
 
 .chat-page .header {
@@ -14,6 +34,7 @@
 
 .form-page .header {
   grid-area: 1 / 1 / 2 / 2;
+  max-height: 3.3rem;
 }
 
 .header button {
@@ -40,10 +61,11 @@
   padding-bottom: 0;
 }
 
-.header p {
+.app-name-container p {
   text-align: center;
   font-size: 2rem;
   margin: 0.3rem 0 0 0;
   align-self: center;
   font-family: "Lobster", cursive;
 }
+
