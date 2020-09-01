@@ -3,7 +3,7 @@
 .header {
   background-color: rgb(207, 242, 245);
   /* border-bottom: 1px solid white; */
-  max-height: 4.2rem;
+  /* max-height: 3.5rem; */
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +11,7 @@
 .header-content{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-height: 70%;
+height: 100%;
 }
 
 .room-name{
@@ -25,7 +25,7 @@ height: 70%;
 
 .room-name p{
   font-size: .8rem;
-margin: 0
+margin: 0;
 }
 
 .chat-page .header {

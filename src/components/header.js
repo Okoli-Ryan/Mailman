@@ -1,8 +1,11 @@
 import React from "react";
+import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 
-const Header = () => {
+const Header = (props) => {
   const dispatch = useDispatch();
+  const location = useLocation()
+  console.log(location)
   const user = useSelector((state) => state.loginReducer);
   const room = useSelector((state) => state.menuBarReducer);
 
@@ -22,11 +25,11 @@ const Header = () => {
         </div>
         <div></div>
       </div>
-      {room !== "empty" && (
+      {(location.pathname === "/chatpage") &&
         <div className="room-name">
           <p>{room}</p>
         </div>
-      )}
+}
     </div>
   );
 };
