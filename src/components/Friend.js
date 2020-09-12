@@ -4,7 +4,7 @@ const Friend = ({ friendName }) => {
 
   return (
     <div className="contact-container">
-      <button className="contact">{friendName}</button>
+      <button className="contact" onClick={(e) => e.preventDefault()}>{friendName}</button>
     </div>
   );
 };

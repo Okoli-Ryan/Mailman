@@ -59,7 +59,7 @@
   border-radius: 2rem;
   width: 100%;
   background: white;
-  padding: .4rem 1.2rem .2rem 1.2rem;
+  padding: .55rem 1.2rem .2rem 1.2rem;
   border: none;
   resize: none;
   min-height: 2.2rem;
@@ -74,6 +74,7 @@
 .message-view:focus{
   height: 85%;
   overflow-y: scroll;
+  outline: none
 }
 
 .message-view:empty::before{

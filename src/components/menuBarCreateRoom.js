@@ -22,7 +22,7 @@ const MenuBarCreateRoom = () => {
   };
 
   return (
-    <form className="create-chatroom-form" autocomplete="off">
+    <form className="create-chatroom-form" autoComplete="off">
       <div
         className="menubar-option"
         onClick={() => dispatch({ type: "toggle-create" })}

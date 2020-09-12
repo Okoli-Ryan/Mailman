@@ -27,7 +27,6 @@ function Login() {
                 name="email"
                 className="login-username"
                 onChange={handleChange}
-                 autocomplete="off"
               />
             </div>
             <div className="password">
@@ -37,7 +36,6 @@ function Login() {
                 required
                 name="password"
                 onChange={handleChange}
-                autocomplete="off"
               />
             </div>
             <div className="form-submit">

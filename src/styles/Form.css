@@ -10,11 +10,13 @@
 .form {
   width: 80%;
   max-width: 30rem;
-  height: 20rem;
+  height: max-content;
   margin-top: 1rem;
   background: rgb(207, 242, 245);
   border-radius: 1rem;
   box-shadow: 0 20px 50px rgba(29, 29, 29, 0.7);
+  position: relative;
+  padding: 2rem 1rem;
 }
 
 .form-title {
@@ -22,6 +24,15 @@
   font-size: 2rem;
   margin: 0.4rem auto 1.5rem auto;
   text-align: center;
+  /*  */
+  background: white;
+  padding: .5rem 1rem;
+  position: absolute;
+  top: -2.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1.5rem;
+  width: min-content
 }
 
 input[type="button"] {
@@ -35,7 +46,7 @@ input[type="button"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="button"]:hover {
+input[type="button"]:hover:focus {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -45,6 +56,12 @@ input[type="button"]:hover {
 input[type="button"]:focus {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
 }
+
+.username input:focus{
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);}
 
 .username,
 .password,
@@ -70,6 +87,12 @@ input[type="button"]:focus {
   /* background: linear-gradient(to right, hsl(190, 45%, 74%)
     , pink); */
 }
+/* 
+.username input:focus,
+.password input:focus,
+.submit:focus{
+  box-shadow: 0 20px 50px rgba(29, 29, 29, 0.7);
+} */
 
 .form-switch {
   display: flex;

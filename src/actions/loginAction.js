@@ -13,10 +13,27 @@ export const signUp = (payload) => {
       .then(() => {
         dispatch({ type: "set-user", payload: Auth.currentUser });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
         dispatch({ type: "log-out" });
         dispatch({type: 'loading-false'})
-        dispatch({type: 'show-error-modal'})
+        if(err.code === "auth/email-already-in-use")
+        dispatch({
+          type: 'show-error-modal',
+          message: 'Email is already in use, pick another',
+        });
+        else if( err.code === "auth/invalid-email")
+        dispatch({
+          type: 'show-error-modal',
+          message: 'Email address is not well formatted',
+        });
+        else if(err.code === "auth/weak-password")
+        dispatch({
+          type: 'show-error-modal',
+          message: 'Password should be at least 6 characters long',
+        });
+        
+        // dispatch({type: 'show-error-modal'})
       });
   };
 };
@@ -40,10 +57,16 @@ export const login = (payload) => {
       .then(() => {
         dispatch({ type: "set-user", payload: Auth.currentUser });
       })
-      .catch(() => {
+      .catch((err) => {
         dispatch({ type: "log-out" });
         dispatch({type: 'loading-false'})
-        dispatch({type: 'show-error-modal'})
+        if( err.code === 'auth/wrong-password'){
+          dispatch({
+            type: 'show-error-modal',
+            message: 'Invalid Email / Password',
+          });
+        }
+        // dispatch({type: 'show-error-modal'})
       });
   };
 };

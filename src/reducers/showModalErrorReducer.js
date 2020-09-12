@@ -1,11 +1,11 @@
-const showModalErrorReducer = (state = false, action) => {
+const showModalErrorReducer = (state = {display: false, message: ""}, action) => {
     switch (action.type) {
       case "show-error-modal":
-        return true;
+        return {display: true, message: action.message};
       case "hide-error-modal":
-        return false;
+        return {...state, display: false};
       case "toggle-error-modal":
-        return !state;
+        return {...state, display: !state.display};
       default:
         return state;
     }

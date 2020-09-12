@@ -27,7 +27,7 @@ function Signup() {
                 name="email"
                 className="login-username"
                 onChange={handleChange}
-                autocomplete="off"
+                autoComplete="new-user"
               />
             </div>
             <div className="password">
@@ -36,7 +36,7 @@ function Signup() {
                 type="password"
                 name="password"
                 onChange={handleChange}
-                autocomplete="off"
+                autoComplete="new-password"
               />
             </div>
             <div className="form-submit">

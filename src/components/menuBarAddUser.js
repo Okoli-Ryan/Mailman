@@ -23,7 +23,7 @@ const MenuBarAddUser = () => {
   };
 
   return (
-    <form className="add-user-form" autocomplete="off">
+    <form className="add-user-form" autoComplete="off">
       <div
         className="menubar-option"
         onClick={() => dispatch({ type: "toggle-add-user" })}

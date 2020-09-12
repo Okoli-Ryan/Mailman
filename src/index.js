@@ -13,7 +13,7 @@ export const store = createStore(
   // compose(
     applyMiddleware(thunk)
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  // )
+  
 );
 //TODO create docs for users on signup, manually add them to firebase
 

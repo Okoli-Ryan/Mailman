@@ -8,10 +8,10 @@ const ModalError = () => {
   const showModalError = useSelector((state) => state.showModalErrorReducer);
   return (
     <div
-      style={showModalError ? showModal : hideModal}
+      style={showModalError.display ? showModal : hideModal}
       className="modal modal-error"
     >
-      <p className="modal-text">An Error Occurred</p>
+      <p className="modal-text">{showModalError.message}</p>
       <div className="modal-button-container">
         <button
           onClick={() => dispatch({ type: "hide-error-modal" })}

@@ -12,7 +12,7 @@ const buttonPointDown = { transform: "rotateZ(360deg)" };
 const MenuBarSelectRoom = () => {
   const dispatch = useDispatch();
   const showContacts = useSelector((state) => state.showContactsReducer);
-  const [userContactList, setUserContactList] = useState([]);
+  const [userContactList, setUserContactList] = useState({roomList: [], loaded: false});
   const user = useSelector((state) => state.loginReducer.email);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const MenuBarSelectRoom = () => {
       .doc(user)
       .onSnapshot((doc) => {
         try {
-          setUserContactList(doc.data().rooms);
+          setUserContactList({roomList: doc.data().rooms, loaded: true});
         } catch (e) {
           console.log(e);
         }
@@ -45,11 +45,11 @@ const MenuBarSelectRoom = () => {
           className="contactlist-container"
           style={showContacts ? contactListShow : contactListHide}
         >
-          {userContactList.length !== 0 ? (
-            userContactList
+          {userContactList.loaded ? (userContactList.roomList.length !== 0 ? (
+            userContactList.roomList
               .sort()
               .map((key) => <Contact room={key} key={key} />)
-          ) : (
+          ) : (<p style={{paddingLeft: '1rem'}}> You are not in any room yet</p>)) : (
             <LoadingMenu />
           )}
         </div>

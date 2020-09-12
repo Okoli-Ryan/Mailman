@@ -13,7 +13,7 @@ const buttonPointDown = { transform: "rotateZ(360deg)" };
 
 const MenuBarAddFriend = () => {
   const dispatch = useDispatch();
-  const [userFriendsList, setUserFriendsList] = useState([]);
+  const [userFriendsList, setUserFriendsList] = useState({friendsArray: [], loaded: false});
   const showFriends = useSelector((state) => state.showFriendsReducer);
   const user = useSelector((state) => state.loginReducer.email);
   const addFriendForm = useForm();
@@ -34,7 +34,7 @@ const MenuBarAddFriend = () => {
       .doc(user)
       .onSnapshot((doc) => {
         try {
-          setUserFriendsList(doc.data().friends);
+          setUserFriendsList({friendsArray: doc.data().friends, loaded: true});
         } catch (e) {
           console.log(e);
         }
@@ -44,17 +44,8 @@ const MenuBarAddFriend = () => {
   }, [user]);
 
   return (
-    <form className="friend-form" autocomplete="off">
-        {/* <legend>
-          <span onClick={() => dispatch({ type: "toggle-friends" })}>
-            Add Friend
-            <button
-              className="dropdown-button"
-              style={showFriends ? buttonPointDown : buttonPointRight}
-              onClick={(e) => e.preventDefault()}
-            ></button>
-          </span>
-        </legend> */}
+    <form className="friend-form" autoComplete="off">
+       
         <div
           className="menubar-option"
           onClick={() => dispatch({ type: "toggle-friends" })}
@@ -84,10 +75,12 @@ const MenuBarAddFriend = () => {
           >
             Add Friend
           </button>
-          {userFriendsList.length !== 0 ? (
-            userFriendsList
+          {userFriendsList.loaded ? (
+            userFriendsList.friendsArray.length !==0 ?
+            (userFriendsList.friendsArray
               .sort()
               .map((key) => <Friend friendName={key} key={key} />)
+            ) : (<p style={{paddingLeft: '1rem'}}>You have not added a friend yet</p>)
           ) : (
             <LoadingMenu />
           )}

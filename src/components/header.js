@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 const Header = (props) => {
   const dispatch = useDispatch();
   const location = useLocation()
-  console.log(location)
   const user = useSelector((state) => state.loginReducer);
   const room = useSelector((state) => state.menuBarReducer);
 

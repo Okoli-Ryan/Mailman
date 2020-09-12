@@ -198,7 +198,7 @@ margin-bottom: .5rem;
   -webkit-transition: height 0.5s ease-out;
   -o-transition: height 0.5s ease-out;
   transition: height 0.5s ease-out;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #cff2f5 transparent;

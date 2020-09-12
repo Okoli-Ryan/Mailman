@@ -21,7 +21,7 @@ const MenuBarJoinRoom = () => {
   };
 
   return (
-    <form className="join-chatroom-form" autocomplete="off">
+    <form className="join-chatroom-form" autoComplete="off">
       <div
         className="menubar-option"
         onClick={() => dispatch({ type: "toggle-join" })}

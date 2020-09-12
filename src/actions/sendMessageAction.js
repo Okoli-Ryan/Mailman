@@ -12,6 +12,6 @@ export const sendMessage = (payload) => {
           timestamp: FieldValue.serverTimestamp(),
           key: 'data'+ date
         },
-      });
+      })
   };
 };
