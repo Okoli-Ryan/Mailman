@@ -116,6 +116,7 @@ export const joinChatRoom = (payload) => {
 									type: 'set-current-room',
 									payload: payload.roomName,
 								});
+								dispatch({type: 'hide'})
 							})
 							.catch((err) => {
 								console.log(err);
@@ -214,7 +215,7 @@ export const addFriend = (payload) => {
 			.catch(() => {
 				dispatch({
 					type: 'show-error-modal',
-					message: 'Coudl not save friend contact, check your internet connection',
+					message: 'Could not save friend contact, check your internet connection',
 				});
 			});
 	};
@@ -229,6 +230,8 @@ export const setCurrentRoom = (payload) => {
 
 export const createDM = (payload) => {
 	return (dispatch, getState) => {
+		let roomname = [Auth.currentUser.email, payload.friendName].sort().join('');
+
 		function createDMFunc() {
 			// let date = Date.now();
 
@@ -259,7 +262,7 @@ export const createDM = (payload) => {
 				})
 				//change current room on redux
 				.then(() => {
-					dispatch({ type: 'set-current-room', payload: payload.friendName });
+					dispatch({ type: 'set-current-room', payload: roomname });
 					dispatch({ type: 'hide' });
 					dispatch({ type: 'loading-false' });
 				})
@@ -277,7 +280,6 @@ export const createDM = (payload) => {
 				});
 		}
 
-		let roomname = [Auth.currentUser.email, payload.friendName].sort().join('');
 		dispatch({ type: 'loading-true' });
 		dispatch({ type: 'hide' });
 		dbChatroom
