@@ -28,7 +28,7 @@
 
 .modal-error,
 .modal-update {
-  top: 10%;
+  top: 12%;
   max-height: 10rem;
 }
 
@@ -47,8 +47,10 @@
 }
 
 .modal-update .cancel-container .cancel {
-  left: -0.8rem;
-  top: -1.3rem;
+  margin-top: -1rem;
+  margin-right: .5rem;
+  position: initial;
+  /* margin-top: -1.3rem; */
 }
 
 .modal-text {

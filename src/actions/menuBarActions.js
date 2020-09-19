@@ -90,66 +90,58 @@ export const joinChatRoom = (payload) => {
 				let date = Date.now();
 				//if room exists, join it
 				if (doc.exists) {
-					dbChatroom
-						.doc(payload.roomName)
-						.get()
-						.then((doc) => {
-							const data = doc.data();
-							if (data.authUsers.includes(Auth.currentUser.email)) {
-								dispatch({ type: 'set-current-room', payload: payload.roomName });
-							} else if (data.public === true) {
-								dbChatroom
-									.doc(payload.roomName)
-									.update({
-										authUsers: FieldValue.arrayUnion(Auth.currentUser.email),
-										[`messages.data${date}`]: {
-											sender: 'notification',
-											text: `${Auth.currentUser.email} has been added to the group`,
-											timestamp: FieldValue.serverTimestamp(),
-											key: 'data' + date,
-										},
-									})
-									.then(() => {
-										dbUsers
-											.doc(Auth.currentUser.email)
-											.update({
-												rooms: FieldValue.arrayUnion(payload.roomName),
-											});
-									})
-									.then(() => {
-										console.log('joined');
-										dispatch({
-											type: 'set-current-room',
-											payload: payload.roomName,
-										});
-									})
-									.catch((err) => {
-										console.log(err);
-										dispatch({
-											type: 'set-current-room',
-											payload: getState().menuBarReducer,
-										});
-										dispatch({ type: 'loading-false' });
-										dispatch({
-											type: 'show-error-modal',
-											message:
-												'Could not join room, check your internet connection',
-										});
-										dispatch({ type: 'hide' });
-									});
-							} else {
-								dispatch({ type: 'loading-false' });
+					const data = doc.data();
+					if (data.authUsers.includes(Auth.currentUser.email)) {
+						dispatch({ type: 'set-current-room', payload: payload.roomName });
+					} else if (data.public === true) {
+						dbChatroom
+							.doc(payload.roomName)
+							.update({
+								authUsers: FieldValue.arrayUnion(Auth.currentUser.email),
+								[`messages.data${date}`]: {
+									sender: 'notification',
+									text: `${Auth.currentUser.email} has been added to the group`,
+									timestamp: FieldValue.serverTimestamp(),
+									key: 'data' + date,
+								},
+							})
+							.then(() => {
+								dbUsers.doc(Auth.currentUser.email).update({
+									rooms: FieldValue.arrayUnion(payload.roomName),
+								});
+							})
+							.then(() => {
+								console.log('joined');
+								dispatch({
+									type: 'set-current-room',
+									payload: payload.roomName,
+								});
+							})
+							.catch((err) => {
+								console.log(err);
 								dispatch({
 									type: 'set-current-room',
 									payload: getState().menuBarReducer,
 								});
+								dispatch({ type: 'loading-false' });
 								dispatch({
 									type: 'show-error-modal',
-									message: 'Private Room, invite only',
+									message: 'Could not join room, check your internet connection',
 								});
 								dispatch({ type: 'hide' });
-							}
+							});
+					} else {
+						dispatch({ type: 'loading-false' });
+						dispatch({
+							type: 'set-current-room',
+							payload: getState().menuBarReducer,
 						});
+						dispatch({
+							type: 'show-error-modal',
+							message: 'Private Room, invite only',
+						});
+						dispatch({ type: 'hide' });
+					}
 				} else {
 					dispatch({ type: 'set', payload: payload.roomName });
 					dispatch({ type: 'loading-false' });
@@ -232,5 +224,91 @@ export const setCurrentRoom = (payload) => {
 	return {
 		type: 'set-current-room',
 		payload,
+	};
+};
+
+export const createDM = (payload) => {
+	return (dispatch, getState) => {
+		function createDMFunc() {
+			// let date = Date.now();
+
+			dbChatroom
+				.doc([Auth.currentUser.email, payload.friendName].sort().join(''))
+				.set({
+					authUsers: [Auth.currentUser.email, payload.friendName],
+					messages: {
+						// [`data${date}`]: {
+						// 	sender: 'notification',
+						// 	key: 'data' + date,
+						// 	text: `${payload.roomName} has been created`,
+						// 	timestamp: FieldValue.serverTimestamp(),
+						// },
+					},
+					public: false,
+				})
+				.then(() => {
+					//add room name to Auth.currentUser doc
+					dbUsers.doc(Auth.currentUser.email).update({
+						friends: FieldValue.arrayUnion(payload.friendName),
+					});
+				})
+				.then(() => {
+					dbUsers.doc(payload.friendName).update({
+						friends: FieldValue.arrayUnion(Auth.currentUser.email),
+					});
+				})
+				//change current room on redux
+				.then(() => {
+					dispatch({ type: 'set-current-room', payload: payload.friendName });
+					dispatch({ type: 'hide' });
+					dispatch({ type: 'loading-false' });
+				})
+				//error in updating messages field
+				.catch((err) => {
+					dispatch({ type: 'loading-false' });
+					dispatch({
+						type: 'set-current-room',
+						payload: getState().menuBarReducer,
+					});
+					dispatch({
+						type: 'show-error-modal',
+						message: 'Could not complete, check your internet connection',
+					});
+				});
+		}
+
+		let roomname = [Auth.currentUser.email, payload.friendName].sort().join('');
+		dispatch({ type: 'loading-true' });
+		dispatch({ type: 'hide' });
+		dbChatroom
+			.doc(roomname)
+			.get()
+			.then((doc) => {
+				//if doc doesnt exist, create it
+				if (!doc.exists) {
+					createDMFunc();
+				} else {
+					//if document exists, show join modal
+					//!TODO set current room
+					dispatch({ type: 'hide' });
+					// dispatch({ type: 'set', payload: roomname });
+					dispatch({ type: 'loading-false' });
+					dispatch({ type: 'set-current-room', payload: roomname });
+				}
+			})
+			//error in checking if doc exists
+			.catch((e) => {
+				console.log(e);
+				dispatch({ type: 'loading-false' });
+				dispatch({ type: 'hide' });
+				dispatch({
+					type: 'show-error-modal',
+					message: 'An error occurred, check your internet connection',
+				});
+				dispatch({
+					type: 'set-current-room',
+					payload: getState().menuBarReducer,
+				});
+			});
 	};
 };

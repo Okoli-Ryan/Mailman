@@ -72,6 +72,7 @@ const MenuBarAddFriend = () => {
             type="submit"
             disabled={addFriendForm.userDetails.friend === ""}
             onClick={(e) => submitAddFriend(e)}
+            style={{marginBottom: '0.4rem'}}
           >
             Add Friend
           </button>

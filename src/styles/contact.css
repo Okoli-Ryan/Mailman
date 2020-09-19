@@ -5,7 +5,11 @@ button.contact{
     border: 1px solid black;
     outline: none;
     border-radius: 1rem;
-    margin-bottom: .2rem;
+    /* margin-top: .4rem */
+}
+
+button.contact:last-of-type{
+    margin-bottom: .4rem
 }
 
 button.contact:active{
