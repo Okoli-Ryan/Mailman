@@ -15,7 +15,7 @@ export const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// firebase.analytics();
 
 export const Auth = firebase.auth();
 export const FieldValue = firebase.firestore.FieldValue;
