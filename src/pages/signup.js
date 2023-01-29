@@ -11,50 +11,64 @@ function Signup() {
   const dispatch = useDispatch();
 
   return isLoggedIn ? (
-    <Redirect to="/chatpage" />
+		<Redirect to="/chatpage" />
   ) : (
-    <>
-      <div className="form-page">
-        <Header />
-        <div className="form-container">
-          <form className="form">
-            <div className="form-title">{/* user icon */}Signup</div>
-            <div className="username">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                required
-                name="email"
-                className="login-username"
-                onChange={handleChange}
-                autoComplete="new-user"
-              />
-            </div>
-            <div className="password">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                autoComplete="new-password"
-              />
-            </div>
-            <div className="form-submit">
-              <input
-                type="button"
-                required
-                className="submit"
-                onClick={() => dispatch(signUp(userDetails))}
-                value="submit"
-              />
-            </div>
-            <div className="form-switch">
-              switch to <Link to="/login">Log in</Link>
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
+		<>
+			<div className="form-page">
+				<Header />
+				<div className="form-container">
+					<form className="form">
+						<div className="form-title">{/* user icon */}Signup</div>
+						<div className="username">
+							<label htmlFor="email">Email</label>
+							<input
+								type="email"
+								required
+								name="email"
+								className="login-username"
+								onChange={handleChange}
+								autoComplete="new-user"
+							/>
+						</div>
+						<div className="password">
+							<label htmlFor="password">Password</label>
+							<input
+								type="password"
+								name="password"
+								onChange={handleChange}
+								autoComplete="new-password"
+							/>
+						</div>
+						<div className="form-submit">
+							<input
+								type="button"
+								required
+								className="submit"
+								onClick={() => dispatch(signUp(userDetails))}
+								value="submit"
+							/>
+							<input
+								type="button"
+								required
+								className="submit"
+								onClick={() =>
+									dispatch(
+										signUp({
+											email: `guest${Date.now()}@gmail.com`,
+											password: "defaultPassword",
+										})
+									)
+								}
+								value="sign up as guest"
+							/>
+						</div>
+						<div className="form-switch">
+							switch to <Link to="/login">Log in</Link>
+						</div>
+					</form>
+				</div>
+			</div>
+		</>
   );
 }
 
